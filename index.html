@@ -61,9 +61,10 @@ function calculate() {
         var B = document.getElementById("b").value;
         var C = document.getElementById("c").value;
         var D = document.getElementById("d").value;
-
+           
         var ans = ((A * B) - (C * D)) / (C - B);
-        alert(ans);
+        txtOutput.value = ans
+        <!--alert(ans);-->
       }
 </script>
     
@@ -74,6 +75,7 @@ function calculate() {
     <input type='number' id='b'/>
     <input type='number' id='c'/>
     <input type='number' id='d'/>
+    <input type='text' id="txtOutput">
     <button onClick='calculate()'>calculate</button>
   </body>
                                 
