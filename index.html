@@ -7,76 +7,32 @@
 
   </head>
 
-  <body>
+  <body> -->
  
-
-<script>    
-function calculate() {
-  var variable = document.getElementById('input_id').value;
-  document.getElementById('alert').innerHTML = 'The user input is: ' + variable;
-}
-    </script>
-    
-  <form>
-    <input type="text" id="input_id" value="">
-    <input type="button" value="Submit" onclick="calculate()" />
-    <div id="alert" style="color: red"></div>
-  </form>
-
-  <script type="text/javascript">
-  // from textBoxes.html
-  function sayHi(){
-  var txtName = document.getElementById("txtName");
-  var txtOutput = document.getElementById("txtOutput");
-  var name = txtName.value;
-  txtOutput.value = "Hi there, " + name + "!"
-  } // end sayHi
- </script>
- <link rel="stylesheet" type="text/css" href="textBoxes.css">
- 
- 
- <h1>Text Box Input and Output</h1>
- <form action=">
-  <fieldset>
-  <label>Type your name: </label>
-  <input type = " text"="" id="txtName">
-  <input type="button" value="click me" onclick="sayHi()">
-  <input type="text" id="txtOutput">
-  
- </form>
-
-  </body>
--->
 <html>
 
   <head>
     <link rel="stylesheet" href="style.css">
     
     <!-- <script src="script.js"></script> -->
-    
     <script>
+function calculate() {
+    var panel = parseInt(document.getElementById("panel").value),
+        panelv = 65,
+        panelt = panel * panelv,
+        derating_value = 2,
+        total_hours_standby = panelt * derating_value;
 
-      function calculate(){
-        var A = document.getElementById("a").value;
-        var B = document.getElementById("b").value;
-        var C = document.getElementById("c").value;
-        var D = document.getElementById("d").value;
-           
-        var ans = ((A * B) - (C * D)) / (C - B);
-        txtOutput.value = ans
-        <!--alert(ans);-->
-      }
-</script>
-    
+    document.getElementById("total_hours").innerHTML = total_hours_standby;
+}
+    </script>
   </head>
-
   <body>
-    <input type='number' id='a'/>
-    <input type='number' id='b'/>
-    <input type='number' id='c'/>
-    <input type='number' id='d'/>
-    <input type='text' id="txtOutput">
-    <button onClick='calculate()'>calculate</button>
+    
+<input type="number" id="panel" placeholder="panel quantity"></input><br>
+<button type="button" onclick="calculate()">Result</button>
+
+<p id="total_hours">result displays here</p
+                     
   </body>
-                                
 </html>
