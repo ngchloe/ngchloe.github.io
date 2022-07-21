@@ -9,11 +9,19 @@
   </head>
 
   <body>
-       <h1> learning and testing!</h1>
+<script>    
+function wawa() {
+  var variable = document.getElementById('input_id').value;
+  document.getElementById('alert').innerHTML = 'The user input is: ' + variable;
+}
+    </script>
     
-    <input type='number' id='area'/>
+  <form>
+    <input type="text" id="input_id" value="">
+    <input type="button" value="Submit" onclick="wawa()" />
+    <div id="alert" style="color: red"></div>
+  </form>
 
-    <button onClick='calculate()'>calculate</button>
   </body>
 
 </html>
