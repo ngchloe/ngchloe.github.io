@@ -25,8 +25,14 @@
  filling_prices["Apricot"]=8;
  filling_prices["Buttercream"]=7;
  filling_prices["Chocolate Mousse"]=12;
- 
-	 
+
+// allow user to input the area of the space
+function calculateArea() {
+    var panel = parseInt(document.getElementById("areainput").value),
+        totalareatest = panel * 2;
+
+    document.getElementById("areainput_test").innerHTML = totalareatest;
+}	 
 	 
 // getCakeSizePrice() finds the price based on the size of the cake.
 // Here, we need to take user's the selection from radio button selection
