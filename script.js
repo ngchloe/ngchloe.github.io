@@ -1,3 +1,9 @@
+var filling_prices = new Array();
+    filling_prices["None"]=0;
+    filling_prices["Lemon"]=5;
+    filling_prices["Custard"]=5;
+    filling_prices["Fudge"]=7;
+
 function calculate() {
     var panel = parseInt(document.getElementById("panel").value),
         panelv = 65,
