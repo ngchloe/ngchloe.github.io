@@ -15,13 +15,13 @@ function getFillingPrice() {
     document.getElementById("total_cake").innerHTML = cakeFillingPrice;
 }
 
+
 function calculate() {
-    var totalpanel = 0
-        panel = parseInt(document.getElementById("panel").value),
+    var panel = parseInt(document.getElementById("panel").value),
         panelv = 65,
         panelt = panel * panelv,
-        derating_value = 2
-        totalpanel = panelt * derating_value;
-    document.getElementById("total_hours").innerHTML = totalpanel; 
+        derating_value = 2,
+        total_hours_standby = panelt * derating_value;
 
+    document.getElementById("total_hours").innerHTML = total_hours_standby;
 }
