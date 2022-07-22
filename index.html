@@ -17,13 +17,21 @@
     
   </head>
   <body>
-    <label> Area </label>    
+    <label> Area </label><br>  
 <input type="number" id="panel" placeholder="A in square metres"></input><br>
 
 
-  <label> Type of Space </label>
+  <label> Type of Space </label><br>
   
-  <button type="button" onclick="calculate()">Calculate</button>
+  <select id="filling" name='filling'
+    onchange="calculateTotal()">
+    <option value="None">Select Filling</option>
+    <option value="Lemon">Lemon($5)</option>
+    <option value="Custard">Custard($5)</option>
+    <option value="Fudge">Fudge($7)</option>
+  </select><br>
+  
+    <button type="button" onclick="calculate()">Calculate</button><br>
   <p id="total_hours">result displays here</p>
                      
   </body>
