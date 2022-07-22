@@ -7,15 +7,7 @@ var filling_prices = new Array();
 function getFillingPrice()
 {
     var cakeFillingPrice=0;
-    //Get a reference to the form id="cakeform"
-    
-    //Get a reference to the select id="filling"
-    var selectedFilling = document.getElementById("filling").value),
-         
-         
-    //set cakeFilling Price equal to value user chose
-    //For example filling_prices["Lemon".value] would be equal to 5
-
+    var selectedFilling = document.elements("filling").value),
     cakeFillingPrice = filling_prices[selectedFilling.value];
 
     //finally we return cakeFillingPrice
