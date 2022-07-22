@@ -4,15 +4,15 @@ var filling_prices = new Array();
     filling_prices["Custard"]=5;
     filling_prices["Fudge"]=7;
 
-function getFillingPrice()
-{
+function getFillingPrice() {
     var cakeFillingPrice=0;
+    
     var selectedFilling = document.elements("filling").value),
-    cakeFillingPrice = filling_prices[selectedFilling.value];
+        cakeFillingPrice = filling_prices[selectedFilling.value];
 
     //finally we return cakeFillingPrice
 
-    return cakeFillingPrice;
+    document.getElementById("total_cake").innerHTML = cakeFillingPrice;
 }
 
 function calculate() {
@@ -22,10 +22,6 @@ function calculate() {
         panelt = panel * panelv,
         derating_value = 2
         totalpanel = panelt * derating_value;
-    return totalpanel 
-    
-    var totalprice = getFillingPrice() + totalpanel     
+    document.getElementById("total_hours").innerHTML = totalpanel; 
 
-
-    document.getElementById("total_hours").innerHTML = totalprice;
 }
