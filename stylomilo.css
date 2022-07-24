@@ -1,6 +1,7 @@
 .bigbox {
   width: 960px; 
   margin: auto;
+  word-wrap: break-word;
 }
 
 .container {
