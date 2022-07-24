@@ -8,67 +8,151 @@
     
   </head>
   
-  <body onload='hideTotal()'>
-    <div id="wrap">
-        <form action="" id="cakeform" onsubmit="return false;">
-        <div>
-            <div class="cont_order">
-		    
-               <fieldset>
-		       
-                <legend>Make your cake! v2</legend>
-                <label> Size Of the Cake</label>
-                <label class='radiolabel'><input type="radio"  name="selectedcake" value="Round6" onclick="calculateTotal()" />Round cake 6" -  serves 8 people ($20)</label><br/>
-                <label class='radiolabel'><input type="radio"  name="selectedcake" value="Round8" onclick="calculateTotal()" />Round cake 8" - serves 12 people ($25)</label><br/>
-                <label class='radiolabel'><input type="radio"  name="selectedcake" value="Round10" onclick="calculateTotal()" />Round cake 10" - serves 16 people($35)</label><br/>
-                <label class='radiolabel'><input type="radio"  name="selectedcake" value="Round12" onclick="calculateTotal()" />Round cake 12" - serves 30 people($75)</label><br/>
-                <br/>
-		       
-                <label >Filling</label>
-         
-                <select id="filling" name='filling' onchange="calculateTotal()">
-                <option value="None">Select Filling</option>
-                <option value="Lemon">Lemon($5)</option>
-                <option value="Custard">Custard($5)</option>
-                <option value="Fudge">Fudge($7)</option>
-                <option value="Mocha">Mocha($8)</option>
-                <option value="Raspberry">Raspberry($10)</option>
-                <option value="Pineapple">Pineapple($5)</option>
-                <option value="Dobash">Dobash($9)</option>
-                <option value="Mint">Mint($5)</option>
-                <option value="Cherry">Cherry($5)</option>
-                <option value="Apricot">Apricot($8)</option>
-                <option value="Buttercream">Buttercream($7)</option>
-                <option value="Chocolate Mousse">Chocolate Mousse($12)</option>
-                </select>
-		       
-                <br/>
-		       
-                <p>
-                <label for='includecandles' class="inlinelabel">Include Candles($5)</label>
-               <input type="checkbox" id="includecandles" name='includecandles' onclick="calculateTotal()" />
-               </p>
-               
-                <p>
-                <label class="inlinelabel" for='includeinscription'>Include Inscription($20)</label>
-                <input type="checkbox" id="includeinscription" name="includeinscription" onclick="calculateTotal()" />
-                <input type="text"  id="theinscription" name="theinscription" value="Enter Inscription"  />
-                </p>
-		       
-		<p>
-		<input type="number" id="areainput" placeholder="how big is your space"/><br>
-		</p>
-		
-                <div id="totalPrice"></div>
-                <p id="areainput_test">area result test</p>
-		       
-                </fieldset>
-            </div>
-            
-           <input type='submit' id='submit' value='Submit' onclick="calculateTotal()" />
-        </div>  
-       </form>
-	</div><!--End of wrap-->
+<body>
+
+Type of space: <br>
+
+<form>
+  <select id="typeSpace" onclick="show()">
+    <option disabled selected value> -- select an option -- </option>
+
+    <option value="300">Accessory storage areas, mechanical equipment room</option>
+
+    <option value="300">Agricultural building</option>
+
+    <option value="500">Aircraft hangers</option>
+
+    <option value="20">Airport terminal</option>
+    <option value="300">Airport: Baggage claim</option>
+    <option value="100">Airport: Baggage handling</option>
+    <option value="15">Airport: Concourse waiting areas</option>
+
+    <option value="11">Assembly</option>
+    <option value="11">Assembly: Gaming floors</option>
+    <option value="30">Exhibit gallery and museum (net)</option>
+
+    <option value="7">Assembly without fixed seats: Concentrated (chairs only - not fixed) (net)</option>
+    <option value="5">Assembly without fixed seats: Standing space (net)</option>
+    <option value="15">Assembly without fixed seats: Unconcentrated (tables and chairs) (net)</option>
+
+    <option value="7">Bowling centre (net)</option>
+
+    <option value="150">Business areas</option>
+
+    <option value="40">Courtrooms - other than fixed seating areas (net)</option>
+
+    <option value="35">Daycare (net)</option>
+
+    <option value="50">Dormitories</option>
+
+    <option value="20">Educational (net)</option>
+    <option value="20">Educational: Classroom area (net)</option>
+    <option value="50">Shops and other vocational room areas (net)</option>
+
+    <option value="50">Exercise rooms</option>
+
+    <option value="200">Group H-5 fabrication and manufacturing areas</option>
+
+    <option value="100">Industrial areas</option>
+
+    <option value="240">Institutional areas</option>
+    <option value="240">Institutional areas: Inpatient treatment areas</option>
+    <option value="100">Institutional areas: Outpatient treatment areas</option>
+    <option value="120">Institutional areas: Sleeping Areas</option>
+
+    <option value="200">Kitchens, commercial</option>
+
+    <option value="50">Library (net)</option>
+    <option value="50">Library: Reading rooms (net)</option>
+    <option value="100">Library: Stack area</option>
+
+    <option value="50">Locker rooms</option>
+
+    <option value="60">Mercantile</option>
+    <option value="300">Mercantile: Storage, stock, shipping areas</option>
+
+    <option value="200">Parking garages</option>
+
+    <option value="200">Residential</option>
+
+    <option value="50">Skating rinks</option>
+    <option value="15">Skating rink: Deck</option> 
+
+    <option value="50">Swimming pools</option>
+    <option value="15">Swimming pools: Deck</option>
+
+    <option value="15">Stages and platforms (net)</option>
+
+    <option value="500">Warehouses</option>
+
+  </select>
+</form>
+
+<form>
+    <input type="number" id="in" placeholder="Area in sqm" min="0" oninput="validity.valid||(value='');">
+    <br>
+</form>
+
+<button type="button" onclick="calculate()">Calculate</button><br><br>
+
+Occupant Load:<p id="out"> </p>
+
+NOTE: For Assembly with fixed seats, Concentrated business use areas, Mall buildings - covered and open:<br>
+
+Refer to notes<br>
+
+<button onclick="expand1()">Assembly with Fixed seats</button><br>
+
+<div id="divExpand1" style="display: none">
+
+Assembly with Fixed seats (Section 1004.6) <br>
+For areas having fixed seats and aisles, the occupant load shall be determined by the number of fixed seats installed therein. The occupant load for areas in which fixed seating is not installed, such as waiting spaces, shall be determined in accordance with Section 1004.5 and added to the number of fixed seats. <br>
+The occupant load of wheelchair spaces and the associated companion seat shall be based on one occupant for each wheelchair space and one occupant for the associated companion provided in accordance with Section 1108.2.3.<br>
+For areas having fixed seating without dividing arms, the occupant load shall be not less than the number of seats based on one person for each 457mm (18 inches) of seating length.<br>
+The occupant load of seating booths shall be based on one person for each 610mm (24 inches) of booth seat length measured at the backrest of the seating booth.<br>
+
+</div>
+
+<button onclick="expand2()">Concentrated business use areas</button><br>
+
+<div id="divExpand2" style="display: none">
+
+Concentrated business use areas (Section 1004.8) <br>
+The occupant load factor for concentrated business use shall be applied to telephone call centres, trading floors, electronic data processing centres, and similar business use areas with a higher density of occupants than would normally be expected in a typical business occupancy environment. Where approved by the building official, the occupant load for concentrated business use areas shall be the actual occupant load, but not less than one occupant per 4.65m2 (50 square feet) of gross occupiable floor space.<br>
+
+</div>
+
+<button onclick="expand3()">Mall buildings - covered and open</button><br>
+
+<div id="divExpand3" style="display: none">
+    
+Mall buildings - covered and open (Section 402.8.2) <br>
+The occupant load permitted in any individual tenant space in a covered or open mall building shall be determined as required by this code. Means of egress requirements for individual tenant spaces shall be based on the occupant load thus determined.<br>
+402.8.2.1 Occupant formula <br>
+In determining required means of egress of the mall, the number of occupants for whom means of egress are to be provided shall be based on gross leaseable area of the covered or open mall building (excluding anchor buildings) and the occupant load factor as determined by Equation 4-1.<br>
+OLF = (0.00007)(GLA) + 2.3225 <br>
+where:<br>
+OLF = Occupant load factor (square metres per person)<br>
+GLA = Gross leaseable area (square metres)<br>
+
+<form>
+    <input type="number" id="in41" placeholder="Area in sqm" min="0" oninput="validity.valid||(value='');">
+    <br>
+</form>
+
+<button type="button" onclick="equation41()">Calculate</button><br><br>
+
+Occupant Load from Equation 4-1:<p id="out41"> </p><br>
+
+Exception: Tenant spaces attached to a covered or open mall building but with a means of egress system that is totally independent of the open mall of an open mall building or of a covered mall building shall not be considered as gross leaseable area for determining the required means of egress for the mall building.<br>
+402.8.2.2. OLF range<br>
+The occupant load factor (OLF) is not required to be less than 2.787 sqm per person (30 square feet per person) and shall not exceed 4.645 sqm per person (50 square feet per person).<br>
+402.8.2.3 Anchor buildings<br>
+The occupant load of anchor buildings opening into the mall shall not be included in computing the total number of occupants for the mall.<br>
+402.8.4 Food courts<br>
+The occupant load of a food court shall be determiend in accordance with Section 1004. For the purposes of determining the means of egress requirements for the mall, the food court occupant load shall be added to the occupant load of the covered or open mall building as calculated in Section 402.8.2.1.
+
+</div>
 
 </body>
 </html>
