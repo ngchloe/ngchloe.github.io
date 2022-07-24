@@ -11,7 +11,8 @@
 
 .content {
   max-width: 800px;
-  margin: auto;
+  margin: 0;
+  padding: 0;
   text-align: center;
   background: white;
   font-family: "Manrope", Arial, sans-serif;
