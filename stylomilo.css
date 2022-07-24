@@ -2,7 +2,7 @@
   background-color: #f1f1f1;
   padding: 20px;
   text-align: center;
-  font-family: "Inter";
+  font-family: "Inter", "Montserrat", Arial, sans-serif;
 }
 
 .content {
@@ -10,5 +10,5 @@
   margin: auto;
   background: white;
   padding: 10px;
-  font-family: "Manrope";
+  font-family: "Manrope", Arial, sans-serif;
 }
