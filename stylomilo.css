@@ -1,10 +1,10 @@
-.header {
+header {
   background-color: #f1f1f1;
   padding: 20px;
   text-align: center;
 }
 
-.content {
+content {
   max-width: 500px;
   margin: auto;
   background: white;
