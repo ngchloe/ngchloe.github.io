@@ -1,10 +1,12 @@
 .header {
-  background-color: #00c4b4;
+  background-color: #210085;
   padding: 50px;
   text-align: center;
   font-family: "Montserrat", "Inter", Arial, sans-serif;
-  font-weight:bold;
-  font-size: 30px;
+  font-weight:800;
+  font-size: 25px;
+  font-color: white;
+  margin: 0px;
 }
 
 .content {
