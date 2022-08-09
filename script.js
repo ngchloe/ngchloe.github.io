@@ -6,7 +6,7 @@ function show(){
         toCount = parseInt(occupantLoadFactor.value);
 }  
 
-function calculate() {
+function calculateOL() {
     var areaInput = parseInt(document.getElementById('in').value),
         calculatedOccupants = Math.ceil(areaInput / (toCount*feetSqm));
         document.getElementById('out').innerHTML = calculatedOccupants;
@@ -58,7 +58,7 @@ function hide() {
     document.getElementById("storageClass").style.display = "none";
 }    
 
-function calculate() {
+function calculatePlumbing() {
   var a1 = document.getElementById('a1').selected; //theater
   var a2 = document.getElementById('a2').selected; //nightclub
   var a3 = document.getElementById('a3').selected; //restaurants
