@@ -1,136 +1,46 @@
-/**
- * Helper function for creating car
- **/
-function createCar(name, id) {
-  return {
-    name: name,
-    id: id,
-  };
+var feetSqm = 0.0929;
+
+function show(){
+    var occupantLoadFactor = document.getElementById("typeSpace");
+        toCount = parseInt(occupantLoadFactor.value);
+}  
+
+function calculate() {
+    var areaInput = parseInt(document.getElementById('in').value),
+        calculatedOccupants = Math.ceil(areaInput / (toCount*feetSqm));
+        document.getElementById('out').innerHTML = calculatedOccupants;
 }
 
-/**
- * Helper function for creating model
- **/
-function createModel(name, id, car) {
-  return {
-    name: name,
-    id: id,
-    car: car,
-  };
-}
-
-/**
- * Helper function for creating configuration
- **/
-function createConfiguration(name, id, model) {
-  return {
-    name: name,
-    id: id,
-    model: model,
-  };
-}
-
-/**
- * Removes all options but the first value in a given select
- * and than selects the only remaining option
- **/
-function removeOptions(select) {
-  while (select.options.length > 1) {                
-    select.remove(1);
+function expand1() {
+  var x = document.getElementById("divExpand1");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
   }
-  
-  select.value = "";
 }
 
-/**
- * Adds given options to a given select
- **/
-function addOptions(select, options) {
-  console.log(select, options)
-  options.forEach(function(option) {
-    select.options.add(new Option(option.name, option.id));
-  });
+function expand2() {
+  var x = document.getElementById("divExpand2");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
 }
 
-/**
- * Select elements references
- **/
-var carsSelect = document.getElementById('cars-select');
-var modelsSelect = document.getElementById('models-select');
-var configurationSelect = document.getElementById('configurations-select');
-
-/**
- * Available cars
- **/
-var cars = [
-  createCar('BMW', 'bmw'),
-  createCar('Volkswagen', 'volk'),
-  createCar('Ford', 'ford'),
-  createCar('abc', 'abc'),
-];
-
-/**
- * Available models
- **/
-var models = [
-  createModel('M6', 'm6', 'bmw'),
-  createModel('M5', 'm5', 'bmw'),
-  createModel('Golf', 'golf', 'volk'),
-  createModel('Passat', 'passat', 'volk'),
-  createModel('Focus', 'focus', 'ford'),
-  createModel('Mondeo', 'mondeo', 'ford'),
-  createModel('def', 'def', 'abc'),
-  createModel('gfgd', 'gfhf', 'abc'),
-];
-
-/**
- * Available configurations
- **/
-var configurations = [
-  createConfiguration('M6 Sedan', 'sedan', 'm6'),
-  createConfiguration('M6 Coupe', 'coupe', 'm6'),
-  createConfiguration('M5 Sedan', 'sedan', 'm5'),
-  createConfiguration('M5 Coupe', 'coupe', 'm5'),
-  createConfiguration('Golf Sedan', 'sedan', 'golf'),
-  createConfiguration('Golf Coupe', 'coupe', 'golf'),
-  createConfiguration('Passat Sedan', 'sedan', 'passat'),
-  createConfiguration('Passat Coupe', 'coupe', 'passat'),
-  createConfiguration('Focus Sedan', 'sedan', 'focus'),
-  createConfiguration('Focus Coupe', 'coupe', 'focus'),
-  createConfiguration('Mondeo Sedan', 'sedan', 'mondeo'),
-  createConfiguration('Mondeo Coupe', 'coupe', 'mondeo'),
-  createConfiguration('abc sedanme', 'sedan', 'def'),
-  createConfiguration('abc coupe', 'coupe', 'gfhf'),
-];
-
-/** 
- * Updates models
- **/
-function updateModels() {
-  var selectedCar = carsSelect.value;
-  var options = models.filter(function(model) {
-    return model.car === selectedCar;
-  });
-  
-  removeOptions(modelsSelect);
-  removeOptions(configurationSelect);
-  addOptions(modelsSelect, options);
+function expand3() {
+  var x = document.getElementById("divExpand3");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
 }
 
-/**
- * Updates configurations
- */
-function updateConfigurations() {
-  var selectedModel = modelsSelect.value;
-  var options = configurations.filter(function(configuration) {
-    return configuration.model === selectedModel;
-  });
-  
-  removeOptions(configurationSelect);
-  addOptions(configurationSelect, options);
+function equation41() {
+    var GLA = parseInt(document.getElementById('in41').value),
+        equationOLF = 0.00007*GLA +25*0.0929;
+        document.getElementById('out41').innerHTML = equationOLF.toFixed(2);
 }
 
-/**
- * Adds options to car select
- **/
-addOptions(carsSelect, cars);
