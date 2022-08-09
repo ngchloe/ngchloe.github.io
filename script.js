@@ -1,5 +1,5 @@
 var feetSqm = 0.0929;
-var calculatedOccupants = 0;
+var occupants = 0;
 
 function show(){
     var occupantLoadFactor = document.getElementById("typeSpace");
@@ -8,8 +8,10 @@ function show(){
 
 function calculateOL() {
     var areaInput = parseInt(document.getElementById('in').value),
-        calculatedOccupants = Math.ceil(areaInput / (toCount*feetSqm));
-        document.getElementById('out').innerHTML = calculatedOccupants;
+        occupants = Math.ceil(areaInput / (toCount*feetSqm));
+        document.getElementById('out').innerHTML = occupants;
+        return occupants;
+       
 }
 
 function expand1() {
@@ -45,8 +47,6 @@ function equation41() {
         document.getElementById('out41').innerHTML = equationOLF.toFixed(2);
 }
 
-var calculatedOccupants2 = Math.ceil(calculatedOccupants/2);
-
 function hide() {
     document.getElementById("assemblyClass").style.display = "none";
     document.getElementById("buildingClass").style.display = "none";   
@@ -59,6 +59,9 @@ function hide() {
 }    
 
 function calculatePlumbing() {
+  var calculatedOccupants = calculateOL();
+  var calculatedOccupants2 = Math.ceil(calculatedOccupants/2);
+
   var a1 = document.getElementById('a1').selected; //theater
   var a2 = document.getElementById('a2').selected; //nightclub
   var a3 = document.getElementById('a3').selected; //restaurants
