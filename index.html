@@ -9,7 +9,7 @@
     
   </head>
   
-<body>
+<body onload = "hide()">
  
 <div class="bigbox">
  
@@ -116,28 +116,24 @@ Take note of the following functions:<br><br>
 <button type="button" onclick="expand1()">Assembly with Fixed seats</button><br>
 
 <div id="divExpand1" style="display: none">
-
 Assembly with Fixed seats <a href="https://codes.iccsafe.org/content/IBC2018/chapter-10-means-of-egress#IBC2018_Ch10_Sec1004.6"(Section 1004.6)></a><br>
 For areas having <i>fixed seats</i> and <i>aisles</i>, the <i>occupant load</i> shall be determined by the number of <i>fixed seats</i> installed therein. The <i>occupant load</i> for areas in which <i>fixed seating</i> is not installed, such as waiting spaces, shall be determined in accordance with Section 1004.5 and added to the number of <i>fixed seats</i>.<br>
 The <i>occupant load</i> of <i>wheelchair spaces</i> and the associated companion seat shall be based on one occupant for each <i>wheelchair space</i> and one occupant for the associated companion provided in accordance with Section 1108.2.3.<br>
 For areas having <i>fixed seating</i> without dividing arms, the <i>occupant load</i> shall be not less than the number of seats based on one person for each 457mm (18 inches) of seating length.<br>
 The <i>occupant load</i> of seating booths shall be based on one person for each 610mm (24 inches) of booth seat length measured at the backrest of the seating booth.<br>
-
 </div>
 
 <button onclick="expand2()">Concentrated business use areas</button><br>
 
 <div id="divExpand2" style="display: none">
-
 Concentrated business use areas <a href="https://codes.iccsafe.org/content/IBC2018/chapter-10-means-of-egress#IBC2018_Ch10_Sec1004.8">(Section 1004.8)</a><br>
 The occupant load factor for concentrated business use shall be applied to telephone call centres, trading floors, electronic data processing centres, and similar business use areas with a higher density of occupants than would normally be expected in a typical business occupancy environment. Where approved by the <i>building official</i>, the occupant load for concentrated business use areas shall be the <i>actual occupant load</i>,, but not less than one occupant per 4.65 square metres (50 square feet) of gross occupiable floor space.<br>
-
 </div>
 
 <button onclick="expand3()">Mall buildings - covered and open</button><br>
 
 <div id="divExpand3" style="display: none">
-    
+
 Mall buildings - covered and open <a href="https://codes.iccsafe.org/content/IBC2018/chapter-4-special-detailed-requirements-based-on-occupancy-and-use#IBC2018_Ch04_Sec402.8.2">(Section 402.8.2)</a> <br>
 The <i>occupant load</i> permitted in any individual tenant space in a <i>covered or open mall building</i> shall be determined as required by this code. <i>Means of egress</i> requirements for individual tenant spaces shall be based on the <i>occupant load</i> thus determined.<br>
 402.8.2.1 Occupant formula <br>
@@ -165,6 +161,98 @@ The <i>occupant load</i> of <i>anchor buildings</i> opening into the <i>mall</i>
 The <i>occupant load</i> of a <i>food court</i> shall be determined in accordance with Section 1004. For the purposes of determining the <i>means of egress</i> requirements for the <i>mall</i>, the food court <i>occupant load</i> shall be added to the <i>occupant load</i> of the covered or <i>open mall building</i> as calculated in Section 402.8.2.1.
 
 </div>
+
+<form id ="myForm">
+
+<select id="allClass" onchange="check()">
+ <option disabled selected value> -- select an option -- </option>
+ <option value="assembly">Assembly</option>
+ <option value="business">Business</option>
+ <option value="educational">Educational</option>
+ <option value="factory">Factory and Industrial</option>
+ <option value="institutional">Institutional</option> 
+ <option value="mercantile">Mercantile</option> 
+ <option value="residential">Residential</option> 
+ <option value="storage">Storage</option>
+</select>
+
+<select id="assemblyClass">
+ 	<option disabled selected value> -- select an option -- </option>
+ 	<option id="a1">Theatres and other buildings for the performing arts and motion pictures</option>
+    <option id="a2">Nightclubs, bars, taverns, dance halls and buildings for similar purposes</option>
+    <option id="a3">Restaurants, banquet halls and food courts</option>
+    <option id="a4">Casino gaming areas</option>    
+    <option id="a5">Auditoriums without permanent seating, art galleries, exhibition halls, museums, lecture halls, libraries, arcades and gymnasiums</option>    
+    <option id="a6">Passenger terminals and transportation facilities</option>    
+    <option id="a7">Places of worship and other religious services</option>      
+    <option id="a8">Coliseums, arenas, skating rinks, pools and tennis courts for indoor sporting events and activities</option>  
+    <option id="a9">Stadiums, amusement parks, bleachers and grandstands for outdoor sporting events and activities</option>     
+</select>
+
+<select id="buildingClass">
+ 	<option disabled selected value> -- select an option -- </option>
+    <option id="b1">Buildings for the transaction of business, professional services, other services involving merchandise, office buildings, banks, light industrial, ambulatory care and similar uses </option>
+</select>
+
+<select id="educationalClass">
+ 	<option disabled selected value> -- select an option -- </option>
+    <option id="e1">Educational facilities</option>
+</select>
+
+<select id="factoryClass">
+ 	<option disabled selected value> -- select an option -- </option>
+    <option id="f1">Structures in which occupants are engaged in work fabricating, assembly or processing of products or materials</option>
+</select>
+
+<select id="institutionalClass">
+ 	<option disabled selected value> -- select an option -- </option>
+    <option id="i1">Custodial care facilities</option>
+    <option id="i2">Medical care recipients in hospitals and nursing homes</option>    
+    <option id="i3">Employees in hospitals and nursing homes</option>
+    <option id="i4">Visitors in hospitals and nursing homes</option> 
+    <option id="i5">Prisons</option>
+    <option id="i6">Reformatories, detention centres and correctional centres</option> 
+    <option id="i7">Employees in reformatories, detention centres and correctional centres</option> 
+    <option id="i8">Adult daycare and child daycare</option> 
+</select>  
+
+<select id="mercantileClass">
+ 	<option disabled selected value> -- select an option -- </option>
+      <option id="m1">Retail stores, service stations, shops, sales rooms, markets and shopping centres</option>
+</select>
+
+<select id="residentialClass">
+ 	<option disabled selected value> -- select an option -- </option>
+      <option id="r1">Hotels, motels, boarding houses (transient)</option>
+      <option id="r2">Dormitories, fraternities, sororities and boarding houses (not transient)</option>
+      <option id="r3">Apartment house</option>      
+      <option id="r4">One- and two- family dwellings and lodging houses with five or fewer guestrooms</option>      
+      <option id="r5">Congregate living facilities with 16 or fewer persons</option>      
+</select>
+
+<select id="storageClass">
+ 	<option disabled selected value> -- select an option -- </option>
+      <option id="s1">Structures for the storage of goods, warehouses, storehouses and freight depots, low and moderate hazard</option>
+</select>
+
+
+</form>
+<br>
+<p id="msg"></p>
+WC Total: <p id="wcTotal">0</p><br>
+WC MALE: <p id="wcMale">0</p><br>
+WC Female: <p id="wcFemale">0</p><br>
+Lavatory total: <p id="lavTotal">0</p><br>
+Lavatory Male: <p id="lavMale">0</p><br>
+Lavatory Female: <p id="lavFemale">0</p><br>
+Bathtubs/Showers: <p id="bathtub">0</p><br>
+Drinking Fountains: <p id="drinkingFountain">0</p><br>
+Others: <p id="other"> </p><br>
+
+
+<input type="button" onclick="calculate()" value="Calculate">
+<br>
+For full details and notes, refer to <a href="https://codes.iccsafe.org/content/IBC2018P6/chapter-29-plumbing-systems">Chapter 29 of the IBC</a>
 
 </div>
   
