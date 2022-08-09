@@ -366,7 +366,7 @@ function calculate() {
   }  
     
   else {
-  document.getElementById('out').innerHTML = "Please select an option";
+  document.getElementById('msg').innerHTML = "Please select an option";
   }
   
   document.getElementById('wcTotal').innerHTML = wcTotal; 
