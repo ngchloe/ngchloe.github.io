@@ -11,6 +11,6 @@ Remember to consult with a licensed professional for code compliance!
 Let me know if there's any issues.
 
 
-Development time: 1 month.
+Development time: 1 month because I'm a noob - just see the hacky JS and that should be plainly obvious.
 
 Last updated August 2022.
