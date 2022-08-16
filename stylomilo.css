@@ -1,21 +1,21 @@
 body {
-	font-family:'Rubik';
+    font-family:'Rubik';
     margin: 0;
     text-align: center;
     min-height: 100vh;
     display: flex;
-  	flex-direction: column;
+    flex-direction: column;
 }
 
 footer {
-  	background-color: #000000;
+    background-color: #000000;
     padding: 20px;
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://user-images.githubusercontent.com/109575115/184544920-4a88db8a-eb61-4e8e-86a2-273f3a3ad44d.jpeg");
-  	height: 50%;
-  	background-position: center;
-  	background-repeat: no-repeat;
-  	background-size: cover;
-  	position: relative;
+    height: 50%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
 }  
 
 html {
@@ -25,9 +25,9 @@ html {
 h1 {
 	text-align:center;
 	font-family: 'Raleway';
-    	font-size:60px;
+    font-size:60px;
 	color:#1a1a1a;
-    	font-weight: bold;
+    font-weight: bold;
 }
 
 h2 {
@@ -41,21 +41,21 @@ h2 {
 h3 {
 	text-align:center;
 	font-family: 'Raleway';
-    	font-size:30px;
+    font-size:30px;
 	color:#1a1a1a;
-    	font-weight: 400 px;
+    font-weight: 400 px;
 }
 
 h4 {
 	text-align:center;
 	font-family: 'Raleway';
-    	font-size:18px;
+    font-size:18px;
 	color:#1a1a1a;
-    	font-weight: 200 px;
+    font-weight: 200 px;
 }
 
 input[type=number], select {
-    	width: 50%;
+    width: 50%;
   	padding: 12px 20px;
  	margin: 8px 0;
  	display: inline-block;
@@ -87,13 +87,13 @@ th {
 
 .button {
 	background-color:#1a1a1a;
-    	color: #eef0ed;
+    color: #eef0ed;
 	padding:10px;
-    	border: none;
-    	font-family: 'Raleway';
+    border: none;
+    font-family: 'Raleway';
 	font-weight:600;
 	cursor:pointer;
-    	transition-duration: 0.3s;
+    transition-duration: 0.3s;
 }
 
 .button:hover {
@@ -102,19 +102,19 @@ th {
 }   
 .buttonTab {
 	background-color:#1a1a1a;
-    	border: none;
-    	color: #eef0ed;
+    border: none;
+    color: #eef0ed;
 	padding:10px;
-    	font-size: 16px;
-   	 font-family: 'Raleway';
+    font-size: 16px;
+   	font-family: 'Raleway';
 	font-weight:600;
 	cursor:pointer;
-    	transition-duration: 0.3s;
+    transition-duration: 0.3s;
 }
 
 .buttonTab:hover {
 	background-color:#ffaa00;
-   	 color: #1a1a1a;
+   	color: #1a1a1a;
 }   
 
 .disclaimer {
@@ -127,13 +127,13 @@ th {
 
 .expanded {
 	max-width: 500px;
-    	margin: auto;
-    	text-align: center;
+    margin: auto;
+    text-align: center;
 } 
 
 .flex {
  	display: flex;
-    	margin: auto;
+    margin: auto;
   	justify-content: center;
 
 }
@@ -158,17 +158,17 @@ th {
 } 
 
 .tab-folder > .tab-content:target ~ .tab-content:last-child, .tab-folder > .tab-content {
-    	display: none;
+    display: none;
     
 }
 .tab-folder > :last-child, .tab-folder > .tab-content:target {
-    	display: block;
+    display: block;
 }
 
 .title {
  	padding: 60px;
   	text-align: center;
-    	background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.4)), url("https://user-images.githubusercontent.com/109575115/184544920-4a88db8a-eb61-4e8e-86a2-273f3a3ad44d.jpeg");
+    background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.4)), url("https://user-images.githubusercontent.com/109575115/184544920-4a88db8a-eb61-4e8e-86a2-273f3a3ad44d.jpeg");
 	display: block;
   	height: 50%;
   	background-position: center;
