@@ -7,7 +7,10 @@ This site is not affliated with nor endorsed by the International Code Council. 
 
 Remember to consult with a licensed professional for code compliance!
 
+
 Let me know if there's any issues.
 
-Development time: 1 month
+
+Development time: 1 month.
+
 Last updated August 2022.
