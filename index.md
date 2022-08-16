@@ -8,4 +8,5 @@ This site is not affliated with nor endorsed by the International Code Council. 
 Remember to consult with a licensed professional for code compliance!
 
 Let me know if there's any issues.
+
 Last updated August 2022.
