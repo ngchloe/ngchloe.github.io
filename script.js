@@ -1,50 +1,42 @@
 var feetSqm = 0.0929;
 var occupants = 0;
 
-function show(){
+function show() {
     var occupantLoadFactor = document.getElementById("typeSpace");
         toCount = parseInt(occupantLoadFactor.value);
 }  
 
 function calculateOL() {
-    var areaInput = parseInt(document.getElementById('in').value),
+	if (document.getElementById('in').value === '' | 0) {
+        alert("Please select an option, or check that Area is non-zero");
+    }
+    else {
+    var areaInput = parseInt(document.getElementById('in').value);
         occupants = Math.ceil(areaInput / (toCount*feetSqm));
         document.getElementById('out').innerHTML = occupants;
         return occupants;
-       
+    }   
 }
 
 function expand1() {
-  var x = document.getElementById("divExpand1");
-  if (x.style.display === "none") {
-    x.style.display = "block";
-  } else {
-    x.style.display = "none";
-  }
-}
-
-function expand2() {
-  var x = document.getElementById("divExpand2");
-  if (x.style.display === "none") {
-    x.style.display = "block";
-  } else {
-    x.style.display = "none";
-  }
-}
-
-function expand3() {
-  var x = document.getElementById("divExpand3");
-  if (x.style.display === "none") {
-    x.style.display = "block";
-  } else {
-    x.style.display = "none";
-  }
+    var x = document.getElementById("divExpand1");
+  	if (x.style.display === "none") {
+    	x.style.display = "block";
+  	} 
+  	else {
+    	x.style.display = "none";
+  	}
 }
 
 function equation41() {
-    var GLA = parseInt(document.getElementById('in41').value),
+	if (document.getElementById('in41').value === '' | 0) {
+        alert("Please key in a non-zero value");
+    }
+    else {
+    var GLA = parseInt(document.getElementById('in41').value);
         equationOLF = 0.00007*GLA +25*0.0929;
         document.getElementById('out41').innerHTML = equationOLF.toFixed(2);
+   }
 }
 
 function hide() {
@@ -59,7 +51,8 @@ function hide() {
 }    
 
 function calculatePlumbing() {
-  var calculatedOccupants = calculateOL();
+  // or var calculatedOccupants = calculateOL(); for it to pull from the OL calculation
+  var calculatedOccupants = parseInt(document.getElementById('calculatePlumbingManual').value);
   var calculatedOccupants2 = Math.ceil(calculatedOccupants/2);
 
   var a1 = document.getElementById('a1').selected; //theater
@@ -90,21 +83,22 @@ function calculatePlumbing() {
   var r5 = document.getElementById('r5').selected; //congregate living   
   var s1 = document.getElementById('s1').selected; //structures for storage  
   
-  var wcMale = 0;
-  var wcFemale = 0;
-  var wcTotal = 0;
-  var lavMale = 0;    
-  var lavFemale = 0;  
-  var lavTotal = 0;
-  var bathtub = 0;    
-  var drinkingFountain = 0;    
-  var other = 0;    
+  var wcMale = "-";
+  var wcFemale = "-";
+  var wcTotal = "-";
+  var lavMale = "-";    
+  var lavFemale = "-";  
+  var lavTotal = "-";
+  var bathtub = "-";    
+  var drinkingFountain = "-";    
+  var other = "-";    
    
   //a1 = theater
   if (a1 == true) {
   	wcMale = Math.ceil(calculatedOccupants2/125);
   	wcFemale = Math.ceil(calculatedOccupants2/65);
-    lavTotal = Math.ceil(calculatedOccupants/200); //total, so use calculatedOccupants
+    lavMale = Math.ceil(calculatedOccupants2/200);
+    lavFemale = lavMale;    
 	bathtub = "-"; 
 	drinkingFountain = Math.ceil(calculatedOccupants/500);
     other = "1 service sink";
@@ -113,7 +107,8 @@ function calculatePlumbing() {
   else if(a2 == true) {
   	wcMale = Math.ceil(calculatedOccupants2/40);
   	wcFemale = Math.ceil(calculatedOccupants2/40);
-    lavTotal = Math.ceil(calculatedOccupants/75); //total, so use calculatedOccupants
+    lavMale = Math.ceil(calculatedOccupants2/75);
+    lavFemale = lavMale;
 	bathtub = "-"; 
 	drinkingFountain = Math.ceil(calculatedOccupants/500);
     other = "1 service sink";
@@ -122,8 +117,9 @@ function calculatePlumbing() {
   else if(a3 == true) {
   	wcMale = Math.ceil(calculatedOccupants2/75);
   	wcFemale = Math.ceil(calculatedOccupants2/75);
-    lavTotal = Math.ceil(calculatedOccupants/200); //total, so use calculatedOccupants
-	bathtub = "-"; 
+    lavMale = Math.ceil(calculatedOccupants2/200);
+    lavFemale = Math.ceil(calculatedOccupants2/200);
+    bathtub = "-"; 
 	drinkingFountain = Math.ceil(calculatedOccupants/500);
     other = "1 service sink";
   } 
@@ -138,10 +134,12 @@ function calculatePlumbing() {
         wcFemale = 8 + Math.ceil((calculatedOccupants2 - 400)/150);
     } 
     if (calculatedOccupants <= 750) {
-    	lavTotal = Math.ceil(calculatedOccupants/250); //total, so use calculatedOccupants
+    	lavMale = Math.ceil((calculatedOccupants/250)/2); 
+    	lavFemale = lavMale;         
     } 
     else {
-    	lavTotal = 3 + Math.ceil((calculatedOccupants - 750)/500); //total, so use calculatedOccupants
+    	lavMale = Math.ceil((3 + (calculatedOccupants - 750)/500)/2);
+        lavFemale = lavMale;
     }    
 	bathtub = "-"; 
 	drinkingFountain = Math.ceil(calculatedOccupants/1000);
@@ -151,7 +149,8 @@ function calculatePlumbing() {
   else if(a5 == true) {  
     wcMale = Math.ceil(calculatedOccupants2/125);
   	wcFemale = Math.ceil(calculatedOccupants2/65);
-    lavTotal = Math.ceil(calculatedOccupants/200); //total, so use calculatedOccupants
+    lavMale = Math.ceil(calculatedOccupants2/200);
+    lavFemale = lavMale;
 	bathtub = "-"; 
 	drinkingFountain = Math.ceil(calculatedOccupants/500);
     other = "1 service sink";  
@@ -160,7 +159,8 @@ function calculatePlumbing() {
   else if(a6 == true) {  
     wcMale = Math.ceil(calculatedOccupants2/500);
   	wcFemale = Math.ceil(calculatedOccupants2/500);
-    lavTotal = Math.ceil(calculatedOccupants/750); //total, so use calculatedOccupants
+    lavMale = Math.ceil(calculatedOccupants2/750);
+    lavFemale = lavMale;
 	bathtub = "-"; 
 	drinkingFountain = Math.ceil(calculatedOccupants/1000);
     other = "1 service sink";  
@@ -169,7 +169,8 @@ function calculatePlumbing() {
   else if(a7 == true) {  
     wcMale = Math.ceil(calculatedOccupants2/150);
   	wcFemale = Math.ceil(calculatedOccupants2/75);
-    lavTotal = Math.ceil(calculatedOccupants/200); //total, so use calculatedOccupants
+    lavMale = Math.ceil(calculatedOccupants2/200);
+    lavFemale = lavMale;
 	bathtub = "-"; 
 	drinkingFountain = Math.ceil(calculatedOccupants/1000);
     other = "1 service sink";  
@@ -223,38 +224,57 @@ function calculatePlumbing() {
   } 
   //b1 = buildings
   else if(b1 == true) {
-    if (calculatedOccupants <= 50) { 
-    	wcTotal = Math.ceil(calculatedOccupants/25); //total, so use calculatedOccupants
-    }
+    if (calculatedOccupants <= 50) {
+    	wcMale = Math.ceil((calculatedOccupants/25)/2); 
+    	wcFemale = wcMale;         
+    } 
     else {
-    	wcTotal = 2 + Math.ceil((calculatedOccupants - 50)/50); //total, so use calculatedOccupants
+    	wcMale = Math.ceil((2 + (calculatedOccupants - 50)/50)/2);
+        wcFemale = wcMale;
     } 
     if (calculatedOccupants <= 80) {
-    	lavTotal = Math.ceil(calculatedOccupants/40); //total, so use calculatedOccupants
+    	lavMale = Math.ceil((calculatedOccupants/40)/2); 
+    	lavFemale = lavMale;         
     } 
     else {
-    	lavTotal = 2 + Math.ceil((calculatedOccupants - 80)/80); //total, so use calculatedOccupants 
-	bathtub = "-"; 
+    	lavMale = Math.ceil((2 + (calculatedOccupants - 80)/80)/2);
+        lavFemale = lavMale;
+	}
+    bathtub = "-"; 
 	drinkingFountain = Math.ceil(calculatedOccupants/100);
     other = "1 service sink";
-    }
   }  
   //e1 = educational facilities
   else if (e1 == true) {
-    wcTotal = Math.ceil(calculatedOccupants/50); //total, so use calculatedOccupants
-    lavTotal = Math.ceil(calculatedOccupants/50); //total, so use calculatedOccupants
+    wcMale = Math.ceil(calculatedOccupants2/50);
+  	wcFemale = Math.ceil(calculatedOccupants2/50);
+    lavMale = Math.ceil(calculatedOccupants2/50);
+  	lavFemale = Math.ceil(calculatedOccupants2/50);
 	bathtub = "-"; 
 	drinkingFountain = Math.ceil(calculatedOccupants/100); //total, so use calculatedOccupants
     other = "1 service sink";  
   }   
-  //f1 = custodial care
+  //f1 = factory
   else if (f1 == true) {
-    wcTotal = Math.ceil(calculatedOccupants/100); //total, so use calculatedOccupants
-    lavTotal = Math.ceil(calculatedOccupants/100); //total, so use calculatedOccupants
+    wcMale = Math.ceil(calculatedOccupants2/100);
+  	wcFemale = Math.ceil(calculatedOccupants2/100);
+    lavMale = Math.ceil(calculatedOccupants2/100);
+  	lavFemale = Math.ceil(calculatedOccupants2/100);
+	bathtub = "-"; 
+	drinkingFountain = Math.ceil(calculatedOccupants/400); //total, so use calculatedOccupants
+    other = "1 service sink";  
+  }   
+  
+  //i1 = custodial care
+  else if (i1 == true) {
+    wcMale = Math.ceil(calculatedOccupants2/10);
+  	wcFemale = Math.ceil(calculatedOccupants2/10);
+    lavMale = Math.ceil(calculatedOccupants2/10);
+  	lavFemale = Math.ceil(calculatedOccupants2/10);
 	bathtub = Math.ceil(calculatedOccupants/8); //total, so use calculatedOccupants
 	drinkingFountain = Math.ceil(calculatedOccupants/100); //total, so use calculatedOccupants
     other = "1 service sink";  
-  }    
+  }      
   //i2 = med care recipients
   else if (i2 == true) {
     wcTotal = "1 per room"; 
@@ -265,16 +285,20 @@ function calculatePlumbing() {
   }    
   //i3 = employees in hospitals or nursing homes
   else if (i3 == true) {
-    wcTotal = Math.ceil(calculatedOccupants/25); //total, so use calculatedOccupants
-    lavTotal = Math.ceil(calculatedOccupants/35); //total, so use calculatedOccupants
+    wcMale = Math.ceil(calculatedOccupants2/25);
+  	wcFemale = Math.ceil(calculatedOccupants2/25);
+    lavMale = Math.ceil(calculatedOccupants2/35);
+  	lavFemale = Math.ceil(calculatedOccupants2/35);
 	bathtub = "-";  
 	drinkingFountain = Math.ceil(calculatedOccupants/100); //total, so use calculatedOccupants
     other = "-";  
   }     
   //i4 = visitors in hospitals or nursing homes
   else if (i4 == true) {
-    wcTotal = Math.ceil(calculatedOccupants/75); //total, so use calculatedOccupants
-    lavTotal = Math.ceil(calculatedOccupants/100); //total, so use calculatedOccupants
+    wcMale = Math.ceil(calculatedOccupants2/75);
+  	wcFemale = Math.ceil(calculatedOccupants2/75);
+    lavMale = Math.ceil(calculatedOccupants2/100);
+  	lavFemale = Math.ceil(calculatedOccupants2/100);
 	bathtub = "-";  
 	drinkingFountain = Math.ceil(calculatedOccupants/500); //total, so use calculatedOccupants
     other = "-";  
@@ -289,32 +313,40 @@ function calculatePlumbing() {
   }     
   //i6 = reformatories
   else if (i6 == true) {
-    wcTotal = Math.ceil(calculatedOccupants/15); //total, so use calculatedOccupants
-    lavTotal = Math.ceil(calculatedOccupants/15); //total, so use calculatedOccupants
+    wcMale = Math.ceil(calculatedOccupants2/15);
+  	wcFemale = Math.ceil(calculatedOccupants2/15);
+    lavMale = Math.ceil(calculatedOccupants2/15);
+  	lavFemale = Math.ceil(calculatedOccupants2/15);
 	bathtub = Math.ceil(calculatedOccupants/15); //total, so use calculatedOccupants 
 	drinkingFountain = Math.ceil(calculatedOccupants/100); //total, so use calculatedOccupants
     other = "1 service sink";  
   }     
   //i7 = employees in reformatories
   else if (i7 == true) {
-    wcTotal = Math.ceil(calculatedOccupants/25); //total, so use calculatedOccupants
-    lavTotal = Math.ceil(calculatedOccupants/35); //total, so use calculatedOccupants
+    wcMale = Math.ceil(calculatedOccupants2/25);
+  	wcFemale = Math.ceil(calculatedOccupants2/25);
+    lavMale = Math.ceil(calculatedOccupants2/35);
+  	lavFemale = Math.ceil(calculatedOccupants2/35);
 	bathtub = "-"; 
 	drinkingFountain = Math.ceil(calculatedOccupants/100); //total, so use calculatedOccupants
     other = "1 service sink";  
   }     
   //i8 = day care
   else if (i8 == true) {
-    wcTotal = Math.ceil(calculatedOccupants/15); //total, so use calculatedOccupants
-    lavTotal = Math.ceil(calculatedOccupants/15); //total, so use calculatedOccupants
-	bathtub = 1; //total, so use calculatedOccupants 
+    wcMale = Math.ceil(calculatedOccupants2/15);
+  	wcFemale = Math.ceil(calculatedOccupants2/15);
+    lavMale = Math.ceil(calculatedOccupants2/15);
+  	lavFemale = Math.ceil(calculatedOccupants2/15);
+	bathtub = 1;  
 	drinkingFountain = Math.ceil(calculatedOccupants/100); //total, so use calculatedOccupants
     other = "1 service sink";  
   }  
   //m1 = retail stores etc 
   else if (m1 == true) {
-    wcTotal = Math.ceil(calculatedOccupants/500); //total, so use calculatedOccupants
-    lavTotal = Math.ceil(calculatedOccupants/750); //total, so use calculatedOccupants
+    wcMale = Math.ceil(calculatedOccupants2/500);
+  	wcFemale = Math.ceil(calculatedOccupants2/500);
+    lavMale = Math.ceil(calculatedOccupants2/750);
+  	lavFemale = Math.ceil(calculatedOccupants2/750);
 	bathtub = "-"; 
 	drinkingFountain = Math.ceil(calculatedOccupants/1000); //total, so use calculatedOccupants
     other = "1 service sink";  
@@ -329,8 +361,10 @@ function calculatePlumbing() {
   }    
   //r2 = dormitories 
   else if (r2 == true) {
-    wcTotal = Math.ceil(calculatedOccupants/10); //total, so use calculatedOccupants
-    lavTotal = Math.ceil(calculatedOccupants/10); //total, so use calculatedOccupants
+    wcMale = Math.ceil(calculatedOccupants2/10);
+  	wcFemale = Math.ceil(calculatedOccupants2/10);
+    lavMale = Math.ceil(calculatedOccupants2/10);
+  	lavFemale = Math.ceil(calculatedOccupants2/10);
 	bathtub = Math.ceil(calculatedOccupants/8); //total, so use calculatedOccupants 
 	drinkingFountain = Math.ceil(calculatedOccupants/100); //total, so use calculatedOccupants
     other = "1 service sink";  
@@ -346,30 +380,34 @@ function calculatePlumbing() {
   //r4 = one- and two- family dwellings
   else if (r4 == true) {
     wcTotal = "1 per dwelling unit";
-    lavTotal = Math.ceil(calculatedOccupants/10); //total, so use calculatedOccupants
+    lavTotal = Math.ceil(calculatedOccupants/10); //no need separate for dwelling/sleeping units
 	bathtub = "1 per dwelling unit";
 	drinkingFountain = "-"; 
     other = "1 kitchen sink per dwelling unit; 1 automatic clothes washer connection per 1 dwelling unit";  
-  }     
+  }      
   //r5 = congregate living 
   else if (r5 == true) {
-    wcTotal = Math.ceil(calculatedOccupants/10); //total, so use calculatedOccupants
-    lavTotal = Math.ceil(calculatedOccupants/10); //total, so use calculatedOccupants
+    wcMale = Math.ceil(calculatedOccupants2/10);
+  	wcFemale = Math.ceil(calculatedOccupants2/10);
+    lavMale = Math.ceil(calculatedOccupants2/10);
+  	lavFemale = Math.ceil(calculatedOccupants2/10);
 	bathtub = Math.ceil(calculatedOccupants/8); //total, so use calculatedOccupants 
 	drinkingFountain = Math.ceil(calculatedOccupants/100); //total, so use calculatedOccupants  
     other = "1 service sink";  
   }    
   //s1 = structures for storage
   else if (s1 == true) {
-    wcTotal = Math.ceil(calculatedOccupants/100); //total, so use calculatedOccupants
-    lavTotal = Math.ceil(calculatedOccupants/100); //total, so use calculatedOccupants
+    wcMale = Math.ceil(calculatedOccupants2/100);
+  	wcFemale = Math.ceil(calculatedOccupants2/100);
+    lavMale = Math.ceil(calculatedOccupants2/100);
+  	lavFemale = Math.ceil(calculatedOccupants2/100);
 	bathtub = "-"; //total, so use calculatedOccupants 
 	drinkingFountain = Math.ceil(calculatedOccupants/1000); //total, so use calculatedOccupants  
     other = "1 service sink";  
   }  
     
   else {
-  document.getElementById('msg').innerHTML = "Please select an option";
+    alert("Please select an option, or check that Occupant Load is non-zero");
   }
   
   document.getElementById('wcTotal').innerHTML = wcTotal; 
@@ -470,6 +508,4 @@ function check() {
         document.getElementById("residentialClass").style.display = "none";        
         document.getElementById("storageClass").style.display = "block";
     }
-
 }
-
