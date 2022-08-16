@@ -9,4 +9,5 @@ Remember to consult with a licensed professional for code compliance!
 
 Let me know if there's any issues.
 
+Development time: 1 month
 Last updated August 2022.
