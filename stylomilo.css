@@ -68,12 +68,18 @@ table {
   	border-collapse: collapse;
   	width: 60%;
   	margin: auto;
+	table-layout: fixed;
 }
 
 table, td, th {
   	border: 1px #ffffff;
   	padding: 10px;
 }
+
+td {
+	width: 12%;
+	overflow: hidden;
+}	
 
 tr {
   	border-bottom: 1px solid #ddd;
