@@ -76,17 +76,14 @@ table, td, th {
   	padding: 10px;
 }
 
-td {
-	width: 120px;
-	overflow: hidden;
-}	
-
 tr {
   	border-bottom: 1px solid #ddd;
 }  
 
 th {
  	height: 30px;
+	width: 120px;
+	overflow: hidden;
  	color: #eef0ed;
  	background-color: #1a1a1a;
 }
