@@ -66,7 +66,7 @@ input[type=number], select {
 
 table {
   	border-collapse: collapse;
-  	width: 60%;
+  	width: 600px;
   	margin: auto;
 	table-layout: fixed;
 }
@@ -77,7 +77,7 @@ table, td, th {
 }
 
 td {
-	width: 12%;
+	width: 100px;
 	overflow: hidden;
 }	
 
