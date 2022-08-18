@@ -69,6 +69,7 @@ table {
   	width: 600px;
   	margin: auto;
 	table-layout: fixed;
+	text-align: center;
 }
 
 table, td, th {
@@ -85,7 +86,6 @@ th {
 	width: 120px;
 	overflow: hidden;
  	color: #eef0ed;
-	text-align: center;
  	background-color: #1a1a1a;
 }
 
