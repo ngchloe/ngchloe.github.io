@@ -66,7 +66,7 @@ input[type=number], select {
 
 table {
   	border-collapse: collapse;
-  	width: 600px;
+  	width: 800px;
   	margin: auto;
 	table-layout: fixed;
 	text-align: center;
@@ -83,7 +83,7 @@ tr {
 
 th {
  	height: 30px;
-	width: 120px;
+	width: 160px;
 	overflow: hidden;
  	color: #eef0ed;
  	background-color: #1a1a1a;
