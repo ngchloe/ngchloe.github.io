@@ -172,7 +172,7 @@ th {
 .title {
  	padding: 60px;
   	text-align: center;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.4)), url("https://user-images.githubusercontent.com/109575115/184544920-4a88db8a-eb61-4e8e-86a2-273f3a3ad44d.jpeg");
+    background-image: linear-gradient(rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0.4)), url("https://user-images.githubusercontent.com/109575115/184544920-4a88db8a-eb61-4e8e-86a2-273f3a3ad44d.jpeg");
 	display: block;
   	height: 50%;
   	background-position: center;
